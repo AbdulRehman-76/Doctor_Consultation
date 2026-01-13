@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body, #root {
+    height: 100%;
+  }
+  body {
+    @apply bg-gradient-to-b from-slate-50 to-white text-slate-800;
+  }
+}
+
+@layer components {
+  .section { @apply max-w-7xl mx-auto px-6 py-8; }
+  .section-title { @apply text-2xl font-semibold text-slate-900; }
+  .section-subtitle { @apply text-slate-600; }
+  .card { @apply rounded-xl border border-slate-200 bg-white shadow-sm hover:shadow-md transition h-full; }
+  .badge { @apply text-xs px-2 py-1 rounded-full; }
+  .btn-primary { @apply inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-brand-600 text-white hover:bg-brand-700 disabled:opacity-50; }
+  .input { @apply mt-1 w-full rounded-md border-slate-300 focus:ring-brand-500 focus:border-brand-500; }
+  .label { @apply block text-sm font-medium text-slate-700; }
+  .header { @apply sticky top-0 z-20 bg-white/80 backdrop-blur border-b border-slate-200; }
+  .tab { @apply inline-flex items-center gap-2 px-4 py-2 rounded-full border transition; }
+  .tab-active { @apply border-brand-600 bg-brand-50 text-brand-700; }
+  .tab-inactive { @apply border-slate-200 bg-white hover:bg-slate-50 text-slate-700; }
+}

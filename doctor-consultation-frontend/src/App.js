@@ -10,6 +10,8 @@ import {
 	Loader2,
 } from 'lucide-react';
 
+axios.defaults.baseURL = process.env.REACT_APP_API_BASE || '';
+
 function Header({ current, onChange }) {
 	const tabs = [
 		{ key: 'doctors', label: 'Doctors', icon: Stethoscope },

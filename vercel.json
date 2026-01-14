@@ -1,19 +1,20 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "doctor-consultation-frontend/package.json",
-      "use": "@vercel/static-build",
-      "config": { "distDir": "build" }
-    }
-  ],
-  "routes": [
-    { "src": "/static/(.*)", "dest": "/static/$1" },
-    { "src": "/favicon.ico", "dest": "/favicon.ico" },
-    { "src": "/logo192.png", "dest": "/logo192.png" },
-    { "src": "/logo512.png", "dest": "/logo512.png" },
-    { "src": "/manifest.json", "dest": "/manifest.json" },
-    { "src": "/robots.txt", "dest": "/robots.txt" },
-    { "src": "/(.*)", "dest": "/index.html" }
-  ]
+	"version": 2,
+	"functions": {
+		"doctor-consultation-backend/api/index.js": {
+			"runtime": "nodejs18.x"
+		}
+	},
+	"routes": [
+		{
+			"src": "^/api(/.*)?$",
+			"dest": "/doctor-consultation-backend/api/index.js"
+		},
+		{ "src": "^/$", "dest": "/doctor-consultation-backend/api/index.js" },
+		{
+			"src": "^(?!/api).*$",
+			"dest": "/doctor-consultation-backend/api/index.js"
+		}
+	]
 }
+
